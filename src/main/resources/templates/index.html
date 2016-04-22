@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Twitter Sign-In : Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+
+        <!-- Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'/>
+        <!-- Base Stylesheet -->
+        <link rel="stylesheet" href="/css/base.css"/>
+        <link rel="stylesheet" href="/css/sitestyle.css"/>
+        <link rel="stylesheet" class="alt" href="/css/theme-blue.css"/>
+    
+</head>
+<body class="wide">
+<div th:include="fragments/header :: header">...</div>
+        
+
+    <div id="main-wrapper">
+        <div class="dark-grey">
+            <div class="container">
+            	<div class="row">
+                	<div class="span12">
+                        <div class="page-header text-center">
+                        	<h1>Your Weather</h1>
+						</div>
+						<div style="font-size:14pt" class="text-center">
+							<span style="font-size:18pt;font-weight:bold" th:text="${weather.temp}"></span><span style="font-size:18pt;font-weight:bold">&deg;</span>
+						</div>							
+						<div style="font-size:12pt" class="text-center">
+							<span th:text="${weather.description}"></span>
+						</div>
+						<div style="font-size:12pt" class="text-center">
+							Humidity: <span th:text="${weather.humidity}"></span>%
+						</div>
+						<div style="font-size:12pt" class="text-center">
+							Cloud Cover: <span th:text="${weather.clouds}"></span>%
+						</div>
+						<div style="font-size:12pt" class="text-center">
+							Wind: <span th:text="${weather.wind}"></span>m/s
+						</div>
+						<div style="font-size:12pt" class="text-center">
+							That's the weather in <span th:text="${weather.city}"></span>!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div th:include="fragments/footer :: footer">...</div>
+</body>
+
+</html>
