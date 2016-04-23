@@ -26,23 +26,8 @@
                         <div class="page-header text-center">
                         	<h1>Your Weather</h1>
 						</div>
-						<div style="font-size:14pt" class="text-center">
-							<span style="font-size:18pt;font-weight:bold" th:text="${weather.temp}"></span><span style="font-size:18pt;font-weight:bold">&deg;</span>
-						</div>							
-						<div style="font-size:12pt;margin-bottom:40px" class="text-center">
-							<span th:text="${weather.description}"></span>
-						</div>
-						<div style="font-size:12pt;margin-bottom:10px" class="text-center">
-							Humidity: <span th:text="${weather.humidity}"></span>%
-						</div>
-						<div style="font-size:12pt;margin-bottom:10px" class="text-center">
-							Cloud Cover: <span th:text="${weather.clouds}"></span>%
-						</div>
-						<div style="font-size:12pt;margin-bottom:40px" class="text-center">
-							Wind: <span th:text="${weather.wind}"></span>m/s
-						</div>
-						<div style="font-size:12pt" class="text-center">
-							That's the weather in <span th:text="${weather.city}"></span>!
+						<div id="weatherArea">
+							
 						</div>
 					</div>
 				</div>
@@ -52,6 +37,17 @@
 
 
 <div th:include="fragments/footer :: footer">...</div>
+<script>
+$.getJSON('http://ipinfo.io', function(data){
+	  var postal = data.postal;
+	  var url = "./weather?postal=" + postal;
+	  $( "#weatherArea" ).load( url );
+	  //alert("calling " + url);
+	  /*$.get( url, function( data ) {
+		  alert( data);
+		});*/
+})
+</script>
 </body>
 
 </html>
